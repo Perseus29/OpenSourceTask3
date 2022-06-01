@@ -1,0 +1,15 @@
+on: [push,pull_request]
+
+jobs:
+  diplay_quote__job:
+    runs-on: ubuntu-latest
+    name: A job to display quote
+    steps:
+      - name: display quote action step
+        id: hello
+        uses: Perseus29/OpenSourceTask3@v1.1
+        with:
+          who-to-greet: 'Priyanshu'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
